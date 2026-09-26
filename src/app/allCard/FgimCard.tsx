@@ -51,19 +51,19 @@ const FgimCard = ({card}:{card: IWorkout}) => {
 
        
         <div className="flex items-center gap-2">
-          <span className="text-lg sm:text-xl">◷</span>
+          <span className="text-lg sm:text-xl ">◷</span>
           <span>{card.duration} min</span>
         </div>
 
         
         <div className="flex items-center gap-2">
-          <span className="text-lg sm:text-xl">●</span>
+          <span className="text-lg sm:text-xl ">●</span>
           <span>{card.caloriesBurned} kcal</span>
         </div>
 
         
         <div className="flex items-center gap-2">
-          <span className="text-lg sm:text-xl">☆</span>
+          <span className="text-lg sm:text-xl ">☆</span>
           <span>{card.rating}</span>
         </div>
 
