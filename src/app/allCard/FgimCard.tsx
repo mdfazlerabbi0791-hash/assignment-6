@@ -70,8 +70,7 @@ const FgimCard = ({card}:{card: IWorkout}) => {
       </div>
     </div>
   </div>
-
-
+  
     );
 };
 

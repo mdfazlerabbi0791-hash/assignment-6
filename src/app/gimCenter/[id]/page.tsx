@@ -1,3 +1,6 @@
+
+import PlanCard from "@/app/allCard/Plan";
+import SavedCard from "@/app/allCard/Saved";
 import { IWorkout } from "@/app/type/GimTypes";
 import Image from "next/image";
 import Link from "next/link";
@@ -25,7 +28,7 @@ const DetilsPage = async ({ params }: ICardDitlsProps) => {
   return (
     <main className="min-h-screen bg-[#0d0f12] px-4 py-8 md:px-8 mb-15">
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 lg:grid-cols-2">
-        {/* LEFT : IMAGE */}
+        
         <div className="overflow-hidden rounded-2xl">
           <Image
             src={gimCards.image}
@@ -36,19 +39,19 @@ const DetilsPage = async ({ params }: ICardDitlsProps) => {
           />
         </div>
 
-        {/* RIGHT : CONTENT */}
+        
         <div className="flex flex-col">
-          {/* Title */}
+          
           <h1 className="text-4xl font-extrabold uppercase tracking-tight text-white md:text-5xl">
             {gimCards.name}
           </h1>
 
-          {/* Description */}
+          
           <p className="mt-4 text-base leading-7 text-gray-400">
             {gimCards.description}
           </p>
 
-          {/* Muscle Groups */}
+          
           <div className="mt-5 flex flex-wrap gap-3">
             {gimCards.muscleGroups.map((muscle) => (
               <span
@@ -60,9 +63,9 @@ const DetilsPage = async ({ params }: ICardDitlsProps) => {
             ))}
           </div>
 
-          {/* INFORMATION CARD */}
+          
           <div className="mt-7 overflow-hidden rounded-2xl border border-gray-700 bg-[#15181e]">
-            {/* Equipment */}
+            
             <div className="flex items-center justify-between border-b border-gray-800 px-6 py-4">
               <span className="text-xs font-bold uppercase tracking-wide text-gray-400">
                 Equipment
@@ -73,7 +76,7 @@ const DetilsPage = async ({ params }: ICardDitlsProps) => {
               </span>
             </div>
 
-            {/* Difficulty */}
+            
             <div className="flex items-center justify-between border-b border-gray-800 px-6 py-4">
               <span className="text-xs font-bold uppercase tracking-wide text-gray-400">
                 Difficulty
@@ -84,7 +87,7 @@ const DetilsPage = async ({ params }: ICardDitlsProps) => {
               </span>
             </div>
 
-            {/* Sets */}
+            
             <div className="flex items-center justify-between border-b border-gray-800 px-6 py-4">
               <span className="text-xs font-bold uppercase tracking-wide text-gray-400">
                 Sets
@@ -93,7 +96,7 @@ const DetilsPage = async ({ params }: ICardDitlsProps) => {
               <span className="text-sm text-gray-200">{gimCards.sets}</span>
             </div>
 
-            {/* Reps */}
+            
             <div className="flex items-center justify-between border-b border-gray-800 px-6 py-4">
               <span className="text-xs font-bold uppercase tracking-wide text-gray-400">
                 Reps
@@ -102,7 +105,7 @@ const DetilsPage = async ({ params }: ICardDitlsProps) => {
               <span className="text-sm text-gray-200">{gimCards.reps}</span>
             </div>
 
-            {/* Duration */}
+            
             <div className="flex items-center justify-between border-b border-gray-800 px-6 py-4">
               <span className="text-xs font-bold uppercase tracking-wide text-gray-400">
                 Duration
@@ -113,7 +116,7 @@ const DetilsPage = async ({ params }: ICardDitlsProps) => {
               </span>
             </div>
 
-            {/* Calories */}
+            
             <div className="flex items-center justify-between border-b border-gray-800 px-6 py-4">
               <span className="text-xs font-bold uppercase tracking-wide text-gray-400">
                 Calories
@@ -124,7 +127,7 @@ const DetilsPage = async ({ params }: ICardDitlsProps) => {
               </span>
             </div>
 
-            {/* Rating */}
+            
             <div className="flex items-center justify-between px-6 py-4">
               <span className="text-xs font-bold uppercase tracking-wide text-gray-400">
                 Rating
@@ -136,7 +139,7 @@ const DetilsPage = async ({ params }: ICardDitlsProps) => {
             </div>
           </div>
 
-          {/* INSTRUCTIONS */}
+          
           <div className="mt-8">
             <h2 className="text-xl font-bold uppercase text-white">
               Instructions
@@ -155,18 +158,14 @@ const DetilsPage = async ({ params }: ICardDitlsProps) => {
             </div>
           </div>
 
-          {/* BUTTONS */}
+          
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <button className="rounded-xl bg-lime-400 px-6 py-3 font-bold text-black transition hover:bg-lime-300">
-              ➕ Add to todays plan
-            </button>
+            <PlanCard gimCards={gimCards}/>
 
-            <button className="rounded-xl border border-gray-600 px-6 py-3 font-semibold text-gray-200 transition hover:bg-[#181b21]">
-              ♡ Save for later
-            </button>
+            <SavedCard gimCards={gimCards}/>
           </div>
 
-          {/* Back Button */}
+          
           <Link
             href="/"
             className="mt-6 text-sm text-gray-500 transition hover:text-lime-400"
