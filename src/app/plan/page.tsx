@@ -11,10 +11,8 @@ import { IWorkout } from "../type/GimTypes";
 const MyPlanPage = () => {
   const { plan, saved } = useContext(gimContext);
 
-  // Active tab
   const [activeTab, setActiveTab] = useState<"plan" | "saved">("plan");
 
-  // Sorting
   const [sort, setSort] = useState<
     "Duration" | "Calories" | "Rating"
   >("Duration");
@@ -36,16 +34,12 @@ const MyPlanPage = () => {
   const sortPlan = sortGims(plan);
   const sortSaved = sortGims(saved);
 
-  // কোন tab active তার data
   const currentList = activeTab === "plan" ? plan : saved;
-
-  // Total minutes
   const totalMinutes = currentList.reduce(
     (total, item) => total + item.duration,
     0
   );
 
-  // Total calories
   const totalCalories = currentList.reduce(
     (total, item) => total + item.caloriesBurned,
     0
@@ -53,9 +47,6 @@ const MyPlanPage = () => {
 
   return (
     <div className="container mx-auto my-6 px-4 sm:my-10 sm:px-6 lg:px-8">
-
-      {/* ================= HEADER ================= */}
-
       <div>
         <h1 className="text-xl font-bold text-white sm:text-2xl">
           MY PLAN
@@ -65,16 +56,9 @@ const MyPlanPage = () => {
           Cap of five lifts for today. Finish them, then load more.
         </p>
       </div>
-
-
-      {/* ================= STATS ================= */}
-
       <div className="mt-6 rounded-2xl border border-gray-800 bg-[#15171d] px-4 py-6 sm:mt-8 sm:px-7 sm:py-8">
 
         <div className="grid grid-cols-3">
-
-          {/* Exercises */}
-
           <div className="border-r border-gray-800">
 
             <p className="text-xs text-gray-400 sm:text-sm">
@@ -86,10 +70,6 @@ const MyPlanPage = () => {
             </p>
 
           </div>
-
-
-          {/* Minutes */}
-
           <div className="border-r border-gray-800 px-3 sm:px-9">
 
             <p className="text-xs text-gray-400 sm:text-sm">
@@ -99,14 +79,9 @@ const MyPlanPage = () => {
             <p className="mt-2 text-2xl font-bold text-white sm:text-3xl">
               {totalMinutes}
             </p>
-
           </div>
 
-
-          {/* Calories */}
-
           <div className="pl-3 sm:pl-9">
-
             <p className="text-xs text-gray-400 sm:text-sm">
               Calories
             </p>
@@ -120,10 +95,6 @@ const MyPlanPage = () => {
         </div>
 
       </div>
-
-
-      {/* ================= SORT ================= */}
-
       <div className="mt-5 flex justify-end sm:mt-6">
 
         <select
@@ -153,13 +124,7 @@ const MyPlanPage = () => {
 
       </div>
 
-
-      {/* ================= TABS ================= */}
-
       <div className="tabs tabs-box mt-6 rounded-2xl border border-gray-800 bg-[#15181e] px-2 pt-5 sm:mt-8 sm:px-3 sm:pt-8">
-
-        {/* TODAY'S PLAN */}
-
         <input
           type="radio"
           name="my_tabs_2"

@@ -34,3 +34,39 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+
+
+//===================  ===========================
+
+1. Project Name
+
+FitTrack – Gym & Workout Planner
+
+
+2. Short Description
+
+FitTrack is a responsive gym and workout management web application where users can explore different workouts, create their daily workout plan, save favorite workouts, and track completed exercises.
+
+
+3. Technologies Used
+
+* Next.js
+* React
+* TypeScript
+* Tailwind CSS
+* DaisyUI
+* Context API
+* Lucide React
+* React Hot Toast
+
+
+4. 5 Key Features
+
+* Workout Discovery: Explore a variety of workouts with detailed information.
+* Daily Workout Plan: Add workouts to a personalized daily workout plan.
+* Save Workouts: Save favorite workouts for quick access later.
+* Workout Completion Tracking: Mark workouts as completed and keep track of daily progress.
+* Responsive Design: Enjoy a smooth and user-friendly experience across desktop, tablet, and mobile devices.
+
