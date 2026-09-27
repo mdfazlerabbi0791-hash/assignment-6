@@ -21,6 +21,7 @@ const PlanList = ({ gimCards }: { gimCards: IWorkout }) => {
     toast.success("Workout marked as not done!");
   }
   };
+  
 
   const handleRemove = () => {
     const updatedPlan = plan.filter((item) => item.id !== gimCards.id);

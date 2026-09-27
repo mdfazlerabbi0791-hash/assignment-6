@@ -10,16 +10,24 @@ const PlanCard = ({ gimCards }: { gimCards: IWorkout }) => {
   const { plan, setPlan } = useContext(gimContext);
 
   const handleClick = () => {
-    const alreadyAdded = plan.some((item) => item.id === gimCards.id);
+    
+  const alreadyAdded = plan.some((item) => item.id === gimCards.id);
 
-    if (alreadyAdded) {
-      toast.warning("Already added to today's plan");
-      return;
-    }
-    setPlan([...plan, gimCards]);
-    toast.success("Added to today's plan");
-  };
+if (plan.length > 4) {
+  console.log('inside length' );
+    toast.error("Today's plan is full, please finish a workout first");
+    return
+    
+  }
+  if (alreadyAdded) {
+    toast.warning("Already added to today's plan");
+    return;
+  }
 
+  setPlan([...plan, gimCards]);
+  toast.success("Added to today's plan");
+};
+  
   return (
     <div>
       
@@ -32,3 +40,8 @@ const PlanCard = ({ gimCards }: { gimCards: IWorkout }) => {
 };
 
 export default PlanCard;
+ 
+
+
+
+ 
