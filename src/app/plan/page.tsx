@@ -1,17 +1,74 @@
+'use client'
 
-import React from 'react';
+import React, { useContext } from "react";
+import { gimContext } from "../context/Gimcontext";
+import PlanList from "../gimLists/PlanList";
+import SavedList from "../gimLists/SavedList";
 
 const MyPlanPage = () => {
-    return (
-        <div className='container mx-auto'>
-            <div>
-                <h1 className='text-white text-2xl font-bold'>MY PLAN</h1>
-            <p className='text-[#9ca3af] text-[18px]'>Cap of five lifts for today. Finish them, then load more.</p>
-            </div>
+    const {plan, saved} = useContext(gimContext)
 
-            
+  return (
+    <div className="container mx-auto">
+      <div>
+        <h1 className="text-white text-2xl font-bold">MY PLAN</h1>
+        <p className="text-[#9ca3af] text-[18px]">
+          Cap of five lifts for today. Finish them, then load more.
+        </p>
+      </div>
+      <div className="text-right">
+        <select
+          defaultValue="Pick a color"
+          className="select appearance-none bg-[#0c0d10] text-white"
+        >
+          <option disabled={true}>Sort by</option>
+          <option value="Duration">Duration</option>
+          <option value="Calories">Calories</option>
+          <option value="Rating">Rating</option>
+        </select>
+      </div>
+
+      <div className="tabs tabs-box rounded-2xl border border-gray-800 bg-[#15181e] pt-8 pl-3">
+        <input
+          type="radio"
+          name="my_tabs_2"
+          className="tab h-12 rounded-xl px-8 text-base font-medium text-gray-400
+    checked:bg-[#202631] checked:text-white"
+          aria-label="Today's Plan"
+        />
+
+        <div className="tab-content p-10">
+          
+          {
+            plan.length > 0 ? (
+                plan.map((gimCards) => {
+                    return <PlanList key={gimCards.id} gimCards={gimCards}/>
+                })
+            ) : (<div className="text-white">No brother</div>)
+          }
         </div>
-    );
+
+        <input
+          type="radio"
+          name="my_tabs_2"
+          className="tab h-12 rounded-xl px-8 text-base font-bold text-gray-400
+    checked:bg-[#202631] checked:text-white"
+          aria-label="Saved"
+          defaultChecked
+        />
+
+        <div className="tab-content p-10">
+          {
+            saved.length > 0 ? (
+                saved.map((gimCards) => {
+                    return <SavedList key={gimCards.id} gimCards={gimCards}/>
+                })
+            ) : (<div className="text-white">No brother</div>)
+          }
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default MyPlanPage;
