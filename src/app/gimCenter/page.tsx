@@ -14,10 +14,12 @@ const GimCenterPage = async () => {
 
   return (
     <div className="container mx-auto my-20">
+      <div className="text-center md:text-left">
       <h1 className="text-white font-bold text-[22px]">THE LIBRARY</h1>
       <p className="text-[#9ca3af]">
         Twelve lifts covering every major muscle group.
       </p>
+      </div>
 
       <div className="mt-8 grid min-w-0 grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {gimAllCard.map((card: IWorkout) => {
