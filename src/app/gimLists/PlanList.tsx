@@ -13,8 +13,13 @@ const PlanList = ({ gimCards }: { gimCards: IWorkout }) => {
   const [done, setDone] = useState(false);
 
   const handleDone = () => {
-    setDone(true);
+     setDone(!done);
+
+  if (!done) {
     toast.success("Workout completed!");
+  } else {
+    toast.success("Workout marked as not done!");
+  }
   };
 
   const handleRemove = () => {
